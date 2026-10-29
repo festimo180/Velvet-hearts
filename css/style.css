@@ -159,3 +159,23 @@ iframe {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Velvet Hearts: restore reliable vertical scrolling on mobile */
+html {
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  height: auto !important;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  touch-action: pan-y;
+}
+
+main {
+  min-height: 100%;
+}
