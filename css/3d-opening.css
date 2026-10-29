@@ -1,0 +1,114 @@
+#vh-3d-opening {
+position: relative;
+width: 100%;
+height: 100svh;
+min-height: 520px;
+overflow: hidden;
+isolation: isolate;
+background:
+radial-gradient(ellipse at 50% 42%, #62264e 0%, #281326 48%, #08070f 100%);
+color: #fff5fa;
+font-family: inherit;
+touch-action: pan-y;
+}
+#vh-3d-opening canvas {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+display: block;
+z-index: -1;
+}
+#vh-3d-opening .vh3d-glow {
+position: absolute;
+inset: 0;
+pointer-events: none;
+background: linear-gradient(180deg, #08070f33, transparent 40%, #08070fcc);
+}
+#vh-3d-opening .vh3d-copy {
+position: absolute;
+z-index: 2;
+left: 50%;
+bottom: max(7%, 32px);
+width: min(92%, 620px);
+transform: translateX(-50%);
+text-align: center;
+pointer-events: none;
+}
+#vh-3d-opening .vh3d-eyebrow {
+letter-spacing: .32em;
+text-transform: uppercase;
+font-size: 11px;
+color: #f6c6dc;
+}
+#vh-3d-opening h1 {
+margin: 12px 0;
+font-size: clamp(42px, 10vw, 82px);
+line-height: .98;
+letter-spacing: -.055em;
+text-shadow: 0 4px 30px #ff8ec455;
+}
+#vh-3d-opening .vh3d-subtitle {
+color: #f1dce9;
+font-size: clamp(14px, 3.5vw, 18px);
+line-height: 1.6;
+}
+#vh-3d-opening .vh3d-enter {
+pointer-events: auto;
+margin-top: 22px;
+border: 1px solid #ffd4e6a6;
+border-radius: 999px;
+padding: 15px 28px;
+background: linear-gradient(135deg,#e9a1c4,#a34c82);
+color: #230e20;
+font-weight: 800;
+letter-spacing: .04em;
+box-shadow: 0 8px 32px #e978b844;
+cursor: pointer;
+}
+#vh-3d-opening .vh3d-hint {
+margin-top: 12px;
+font-size: 11px;
+color: #f2d2e4aa;
+}
+#vh-3d-opening .vh3d-exit {
+position: absolute;
+z-index: 3;
+top: max(18px, env(safe-area-inset-top));
+right: 18px;
+border: 1px solid #ffffff55;
+border-radius: 999px;
+padding: 10px 14px;
+color: white;
+background: #170c1b88;
+cursor: pointer;
+}
+#vh-3d-opening.vh3d-leaving {
+animation: vh3d-fade-out .8s ease forwards;
+}
+@keyframes vh3d-fade-out { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+#vh-3d-opening * { animation-duration: .01ms !important; }
+}
+
+# Full-screen anime opening video
+#
+#
+.vh3d-video{position:absolute;inset:0;width:100
+/* Full-screen anime opening video */
+.vh3d-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+#vh-3d-opening .vh3d-glow {
+  z-index: 1;
+  pointer-events: none;
+}
+#vh-3d-opening .vh3d-copy,
+#vh-3d-opening .vh3d-exit {
+  z-index: 2;
+}

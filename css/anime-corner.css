@@ -1,0 +1,915 @@
+/* VELVET HEARTS — CINEMATIC ANIME SCENE */
+#anime-corner.anime-corner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: calc(100% - 1.25rem);
+  max-width: 560px;
+  height: min(860px, 88svh);
+  min-height: min(620px, 84vh);
+  margin: 2.5rem auto;
+  padding: 0;
+  border: 1px solid rgba(255, 220, 192, .25);
+  border-radius: 28px;
+  background: #170a15;
+  color: #fff5ed;
+  box-shadow: 0 25px 85px rgba(0, 0, 0, .42),
+              0 0 35px rgba(189, 91, 136, .12);
+}
+
+#anime-corner .anime-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center center;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #170a15;
+}
+
+#anime-corner .anime-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 5, 16, .10) 0%,
+      rgba(24, 7, 20, .24) 28%,
+      rgba(26, 8, 22, .72) 58%,
+      rgba(15, 5, 14, .96) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(30, 6, 24, .28),
+      transparent 65%
+    );
+  transition: background .5s ease;
+}
+
+#anime-corner[data-mood="magic"] .anime-bg-overlay {
+  background:
+    linear-gradient(180deg, rgba(19, 9, 45, .08),
+    rgba(26, 9, 49, .42) 42%, rgba(13, 5, 28, .96)),
+    linear-gradient(90deg, rgba(51, 24, 91, .35), transparent);
+}
+
+#anime-corner[data-mood="cozy"] .anime-bg-overlay {
+  background:
+    linear-gradient(180deg, rgba(70, 34, 28, .12),
+    rgba(58, 24, 33, .44) 40%, rgba(21, 8, 18, .96)),
+    linear-gradient(90deg, rgba(121, 59, 64, .24), transparent);
+}
+
+#anime-corner .anime-scene-content {
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: clamp(1.2rem, 5vw, 2.3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#anime-corner .anime-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 1.25rem;
+  color: #f6d5bc;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+#anime-corner .anime-live-dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #f4c6d7;
+  box-shadow: 0 0 13px #f4c6d7;
+  animation: velvet-pulse 2s ease-in-out infinite;
+}
+
+#anime-corner .anime-title {
+  max-width: 480px;
+  margin: 0;
+  color: #fff4ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 10vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: .99;
+  text-wrap: balance;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, .42);
+}
+
+#anime-corner .anime-title em {
+  color: #f3c5a4;
+  font-weight: 400;
+}
+
+#anime-corner .anime-caption {
+  max-width: 310px;
+  margin: 1.1rem auto 1.6rem;
+  color: rgba(255, 244, 237, .88);
+  font-size: .94rem;
+  line-height: 1.8;
+  text-wrap: balance;
+}
+
+#anime-corner .anime-mood-label {
+  margin: .2rem 0 .7rem;
+  color: rgba(255, 236, 228, .72);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+#anime-corner .anime-moods,
+#anime-corner .anime-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .55rem;
+  max-width: 440px;
+}
+
+#anime-corner .anime-mood-btn,
+#anime-corner .anime-control {
+  box-sizing: border-box;
+  min-height: 43px;
+  padding: .7rem .95rem;
+  border: 1px solid rgba(255, 226, 215, .37);
+  border-radius: 999px;
+  background: rgba(35, 12, 29, .52);
+  color: #fff5ed;
+  font: inherit;
+  font-size: .77rem;
+  line-height: 1.2;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform .2s ease, background .2s ease,
+              border-color .2s ease;
+}
+
+#anime-corner .anime-mood-btn[aria-pressed="true"] {
+  border-color: #f4d0ae;
+  background: #f1c9a6;
+  color: #2c1120;
+  box-shadow: 0 5px 24px rgba(244, 192, 166, .18);
+}
+
+#anime-corner .anime-controls {
+  margin-top: 1.4rem;
+}
+
+#anime-corner .anime-control-main {
+  border-color: transparent;
+  background: linear-gradient(120deg, #f5d7b5, #e8b1c6);
+  color: #2a1120;
+  font-weight: 700;
+}
+
+#anime-corner .anime-mood-btn:active,
+#anime-corner .anime-control:active {
+  transform: scale(.96);
+}
+
+#anime-corner .anime-mood-btn:focus-visible,
+#anime-corner .anime-control:focus-visible {
+  outline: 2px solid #ffe1b9;
+  outline-offset: 4px;
+}
+
+#anime-corner .anime-status {
+  min-height: 1.2rem;
+  max-width: 330px;
+  margin: 1rem 0 0;
+  color: rgba(255, 235, 225, .76);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+#anime-corner .anime-signature {
+  position: absolute;
+  right: 1rem;
+  bottom: 1.15rem;
+  left: 1rem;
+  z-index: 3;
+  color: rgba(255, 232, 222, .73);
+  font-size: .59rem;
+  letter-spacing: .22em;
+  text-align: center;
+  pointer-events: none;
+}
+
+#anime-corner .anime-heart-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#anime-corner .anime-floating-heart {
+  position: absolute;
+  bottom: 8%;
+  color: #ffd7e6;
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  filter: drop-shadow(0 0 12px rgba(255, 175, 211, .65));
+  animation: velvet-heart-rise 3.1s ease-out forwards;
+}
+
+#anime-corner[data-mood="magic"] .anime-floating-heart {
+  color: #e4d2ff;
+}
+
+#anime-corner[data-mood="cozy"] .anime-floating-heart {
+  color: #ffd9a9;
+}
+
+@keyframes velvet-heart-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(.55) rotate(-12deg);
+  }
+  15% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateY(-470px) scale(1.3) rotate(18deg);
+  }
+}
+
+@keyframes velvet-pulse {
+  0%, 100% { opacity: .65; transform: scale(.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (max-width: 380px) {
+  #anime-corner .anime-scene-content {
+    padding: 1rem .8rem;
+  }
+
+  #anime-corner .anime-title {
+    font-size: 2.65rem;
+  }
+
+  #anime-corner .anime-caption {
+    margin: .8rem auto 1.1rem;
+  }
+
+  #anime-corner .anime-mood-btn,
+  #anime-corner .anime-control {
+    padding: .65rem .75rem;
+    font-size: .72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #anime-corner .anime-live-dot {
+    animation: none;
+  }
+
+  #anime-corner .anime-floating-heart {
+    animation-duration: 1.2s;
+  }
+}
+
+/* FULL-SITE CINEMATIC VIDEO BACKGROUND */
+html {
+  min-height: 100%;
+  background: #170a15;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+#velvet-global-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #170a15;
+}
+
+#velvet-global-background #anime-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #170a15;
+}
+
+#velvet-global-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(19, 6, 17, .48),
+      rgba(25, 7, 22, .60) 45%,
+      rgba(17, 5, 16, .82)
+    ),
+    rgba(35, 8, 28, .18);
+}
+
+/* Let the moving scene show through the page */
+body > *:not(#velvet-global-background),
+body main,
+body header,
+body footer,
+body section {
+  background-color: transparent;
+}
+
+/* Anime Corner is now content, not a video card */
+#anime-corner.anime-corner {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  min-height: 0;
+  margin: 2rem auto;
+  padding: 2.5rem 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent !important;
+}
+
+#anime-corner .anime-bg-overlay {
+  display: none;
+}
+
+#anime-corner .anime-scene-content {
+  min-height: 360px;
+}
+
+#anime-corner .anime-signature {
+  position: relative;
+  inset: auto;
+  margin-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #velvet-global-background #anime-bg-video {
+    /* The video remains available; other decorative animations are reduced. */
+  }
+}
+
+/* VELVET HEARTS — CINEMATIC POLISH */
+#velvet-global-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#velvet-global-overlay {
+  background:
+    radial-gradient(ellipse at 18% 22%, rgba(190, 82, 132, .18), transparent 48%),
+    radial-gradient(ellipse at 85% 72%, rgba(126, 63, 125, .18), transparent 45%),
+    linear-gradient(180deg, rgba(19, 6, 17, .44), rgba(25, 7, 22, .60) 48%, rgba(17, 5, 16, .82));
+}
+
+#velvet-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.velvet-particle {
+  position: absolute;
+  bottom: -30px;
+  color: #ffe0eb;
+  opacity: 0;
+  text-shadow: 0 0 12px rgba(255, 190, 220, .8);
+  animation: velvet-float-up linear forwards;
+}
+
+@keyframes velvet-float-up {
+  0% { transform: translate3d(0, 0, 0) rotate(0); opacity: 0; }
+  12% { opacity: .72; }
+  80% { opacity: .48; }
+  100% { transform: translate3d(35px, -110vh, 0) rotate(180deg); opacity: 0; }
+}
+
+/* Sections gently appear as the visitor scrolls */
+.velvet-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.velvet-reveal.velvet-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Memory gallery: polished cards and tap feedback */
+#memory-room img,
+.memory-room img,
+.memory-gallery img,
+.gallery img {
+  cursor: zoom-in;
+  transition: transform .45s ease, filter .45s ease;
+}
+
+#memory-room img:hover,
+.memory-room img:hover,
+.memory-gallery img:hover,
+.gallery img:hover {
+  transform: scale(1.025);
+  filter: saturate(1.08);
+}
+
+.velvet-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(12, 4, 13, .92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: velvet-lightbox-in .25s ease both;
+}
+
+.velvet-lightbox img {
+  display: block;
+  max-width: 94vw;
+  max-height: 84vh;
+  object-fit: contain;
+  border: 1px solid rgba(255, 220, 200, .35);
+  border-radius: 14px;
+  box-shadow: 0 15px 70px rgba(0, 0, 0, .4);
+}
+
+.velvet-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 230, 220, .4);
+  border-radius: 50%;
+  background: rgba(45, 15, 36, .85);
+  color: #fff5ed;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes velvet-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* A little extra life for the existing secret-letter trigger */
+#secret-letter button,
+#secret-letter a,
+#secret-letter .letter-button,
+.secret-letter button,
+.secret-letter a,
+.secret-letter .letter-button {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#secret-letter button:hover,
+#secret-letter a:hover,
+#secret-letter .letter-button:hover,
+.secret-letter button:hover,
+.secret-letter a:hover,
+.secret-letter .letter-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(239, 184, 199, .23);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .velvet-particle { animation: none; display: none; }
+  .velvet-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================
+   VELVET HEARTS — MOBILE APP EXPERIENCE
+   ========================================== */
+
+:root {
+  --vh-rose: #eeb8cd;
+  --vh-gold: #f3d3ac;
+  --vh-plum: #200d1d;
+  --vh-glass: rgba(34, 12, 30, .83);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body img,
+body video,
+body iframe {
+  max-width: 100%;
+}
+
+body button,
+body a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body button {
+  touch-action: manipulation;
+}
+
+/* App-like content width on phones */
+@media (max-width: 700px) {
+  body {
+    font-size: 15px;
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body > header,
+  body header {
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  main,
+  body > .container,
+  body > main {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  section {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .section-space {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 11vw, 4rem);
+    line-height: 1.02;
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 8vw, 2.7rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  img {
+    height: auto;
+  }
+
+  /* Floating app navigation */
+  #velvet-app-nav {
+    position: fixed;
+    z-index: 9990;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 3px;
+    padding: 8px 5px;
+    border: 1px solid rgba(255, 225, 220, .19);
+    border-radius: 23px;
+    background: rgba(29, 10, 26, .88);
+    box-shadow: 0 12px 42px rgba(0, 0, 0, .4),
+                inset 0 1px rgba(255, 255, 255, .06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  #velvet-app-nav a,
+  #velvet-app-nav button {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 54px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 2px;
+    border: 0;
+    border-radius: 15px;
+    background: transparent;
+    color: rgba(255, 238, 235, .75);
+    font: inherit;
+    font-size: 10px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #velvet-app-nav .vh-nav-icon {
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  #velvet-app-nav a[aria-current="page"] {
+    background: rgba(235, 177, 199, .14);
+    color: #ffe0c2;
+  }
+
+  #velvet-app-nav a[aria-current="page"] .vh-nav-icon {
+    filter: drop-shadow(0 0 8px rgba(245, 196, 214, .45));
+  }
+
+  /* Daily note sheet */
+  #vh-note-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px 12px calc(18px + env(safe-area-inset-bottom, 0px));
+    background: rgba(12, 4, 13, .72);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+
+  #vh-note-sheet {
+    width: 100%;
+    max-width: 460px;
+    box-sizing: border-box;
+    padding: 28px 22px 24px;
+    border: 1px solid rgba(255, 223, 205, .27);
+    border-radius: 27px;
+    background: linear-gradient(145deg, #3c1932, #1c0b1b 75%);
+    color: #fff3ed;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, .42);
+    animation: vh-sheet-in .35s ease both;
+  }
+
+  #vh-note-sheet h2 {
+    margin: 10px 0;
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+
+  #vh-note-sheet p {
+    color: rgba(255, 240, 235, .85);
+  }
+
+  .vh-note-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .vh-note-actions button {
+    flex: 1;
+    min-height: 47px;
+    border: 1px solid rgba(255, 224, 218, .28);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .06);
+    color: #fff4ed;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .vh-note-actions .vh-note-primary {
+    background: linear-gradient(120deg, #f5d7b5, #e8b1c6);
+    color: #2a1120;
+    font-weight: 700;
+  }
+}
+
+@keyframes vh-sheet-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keep navigation out of the way on larger screens */
+@media (min-width: 701px) {
+  #velvet-app-nav {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  #vh-note-sheet { animation: none; }
+}
+
+/* ======================================
+   VELVET HEARTS — BOLD FULL-WIDTH MOBILE
+   ====================================== */
+
+@media (max-width: 700px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  main,
+  main > section,
+  body > section,
+  .section-space,
+  .container,
+  .content,
+  .wrapper {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  main > section,
+  body > section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Bolder, larger headings */
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2.8rem, 12vw, 4.3rem);
+    font-weight: 500;
+    line-height: .99;
+    letter-spacing: -.055em;
+  }
+
+  h2 {
+    max-width: 100%;
+    font-size: clamp(2.1rem, 9vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -.045em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  /* Make the opening scene use the whole screen */
+  #anime-corner.anime-corner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    min-height: min(76svh, 780px);
+    margin: 0;
+    padding: 42px 22px;
+    box-sizing: border-box;
+  }
+
+  #anime-corner .anime-scene-content {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+  }
+
+  #anime-corner .anime-title {
+    max-width: 100%;
+    font-size: clamp(2.7rem, 11vw, 4rem);
+    line-height: 1;
+  }
+
+  #anime-corner .anime-caption {
+    max-width: 330px;
+    margin: 18px auto;
+    font-size: 1.05rem;
+  }
+
+  /* Let the secret letter occupy the full content width */
+  #secret-letter,
+  .secret-letter,
+  #letter,
+  .letter {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* Bigger, easier-to-tap buttons */
+  main button,
+  main a.button,
+  main .button,
+  body > section button {
+    min-height: 48px;
+  }
+
+  /* Give cards more presence without overflowing the screen */
+  .anime-video-card,
+  .memory-card,
+  .gallery-card,
+  .music-card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+
+  /* Full-width app navigation */
+  #velvet-app-nav {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+    border-radius: 22px;
+  }
+
+  /* Creator credit at the end of the page */
+  #festus-credit {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 30px 0 10px;
+    padding: 22px 16px 30px;
+    text-align: center;
+    color: rgba(255, 229, 224, .82);
+    font-size: .78rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  #festus-credit span {
+    color: #f4c8d6;
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+}
+
+/* Creator credit on larger screens too */
+#festus-credit {
+  text-align: center;
+  color: rgba(255, 229, 224, .82);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  padding: 22px 16px 30px;
+}
+
+#festus-credit span {
+  color: #f4c8d6;
+  font-weight: 700;
+}

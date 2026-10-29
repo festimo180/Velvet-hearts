@@ -1,0 +1,199 @@
+#memory-world {
+  padding: 48px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#memory-world .mw-heading {
+  max-width: 700px;
+  margin: 0 auto 26px;
+}
+
+#memory-world .mw-eyebrow {
+  color: #f0c6d4;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+#memory-world .mw-title {
+  margin: 10px 0;
+  font-size: clamp(2.2rem, 9vw, 3.6rem);
+  line-height: 1.02;
+  font-weight: 500;
+}
+
+#memory-world .mw-intro {
+  color: rgba(255, 239, 235, .78);
+  max-width: 450px;
+}
+
+#memory-world .mw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+}
+
+#memory-world .mw-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 223, 221, .18);
+  border-radius: 20px;
+  background: rgba(38, 13, 33, .75);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .16);
+}
+
+#memory-world .mw-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 165px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 214, 224, .36), transparent 35%),
+    linear-gradient(145deg, #793c62, #29112e 65%, #160a19);
+}
+
+#memory-world .mw-card:nth-child(2) .mw-art {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(246, 207, 166, .34), transparent 34%),
+    linear-gradient(145deg, #5c3558, #29122f 68%, #170b19);
+}
+
+#memory-world .mw-card:nth-child(3) .mw-art {
+  background:
+    radial-gradient(circle at 40% 35%, rgba(229, 177, 204, .35), transparent 34%),
+    linear-gradient(145deg, #58304d, #24102a 68%, #160a19);
+}
+
+#memory-world .mw-card:nth-child(4) .mw-art {
+  background:
+    radial-gradient(circle at 60% 28%, rgba(245, 211, 172, .32), transparent 34%),
+    linear-gradient(145deg, #714357, #28112b 68%, #160a19);
+}
+
+#memory-world .mw-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#memory-world .mw-placeholder {
+  padding: 15px;
+  text-align: center;
+  color: #f7dce7;
+}
+
+#memory-world .mw-placeholder span {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+#memory-world .mw-placeholder small {
+  display: block;
+  opacity: .8;
+  line-height: 1.5;
+}
+
+#memory-world .mw-card-content {
+  padding: 13px;
+}
+
+#memory-world .mw-caption {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 9px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 223, 221, .2);
+  outline: none;
+  background: transparent;
+  color: #fff0eb;
+  font: inherit;
+  font-size: .92rem;
+}
+
+#memory-world .mw-caption::placeholder {
+  color: rgba(255, 235, 233, .55);
+}
+
+#memory-world .mw-date {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 9px;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 235, 233, .7);
+  font: inherit;
+  font-size: .75rem;
+}
+
+#memory-world .mw-actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+#memory-world .mw-actions button {
+  flex: 1;
+  min-width: 0;
+  min-height: 39px;
+  padding: 7px 5px;
+  border: 1px solid rgba(255, 223, 221, .24);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .06);
+  color: #ffe9e5;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+
+#memory-world .mw-actions .mw-add {
+  background: linear-gradient(120deg, #f4d3af, #e8b4cc);
+  color: #2a1122;
+  font-weight: 650;
+}
+
+#memory-world .mw-status {
+  min-height: 1.5em;
+  text-align: center;
+  color: #f3ccda;
+  font-size: .83rem;
+}
+
+#memory-world .mw-note {
+  max-width: 600px;
+  margin: 22px auto 0;
+  text-align: center;
+  color: rgba(255, 235, 233, .66);
+  font-size: .78rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 700px) {
+  #memory-world .mw-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  #memory-world .mw-art {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 350px) {
+  #memory-world .mw-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #memory-world .mw-art {
+    aspect-ratio: 5 / 4;
+  }
+}

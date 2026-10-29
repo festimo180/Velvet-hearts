@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/secret-letter-2.css">
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2b1027">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="images/velvet-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/memory-world.css">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#160912">
+<meta name="description" content="Velvet Hearts — a little world made of music, memories and feelings.">
+<meta property="og:title" content="Velvet Hearts — A Cinematic Little Surprise">
+<meta property="og:description" content="Some things deserve to be experienced slowly.">
+<title>Velvet Hearts — A Cinematic Little Surprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<script src="js/app.js" defer></script>
+<script src="js/gallery.js" defer></script>
+<script src="js/velvet-random-music.js" defer></script>
+  <link rel="stylesheet" href="css/anime-corner.css">
+  <link rel="stylesheet" href="css/3d-opening.css">
+</head>
+<body>
+<div id="velvet-global-background" aria-hidden="true">
+  <video id="anime-bg-video" class="anime-bg-video" preload="auto"
+         aria-label="Anime scene playing in the background" autoplay muted loop playsinline>
+    <source src="videos/anime-clip-1.mp4" type="video/mp4">
+  </video>
+  <div id="velvet-global-overlay"></div>
+  <div id="velvet-particles" aria-hidden="true"></div>
+</div>
+
+<div class="grain"></div>
+<div class="reading-progress" id="readingProgress"></div>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+
+
+<header class="site-header" id="siteHeader">
+  <a class="brand" href="#home"><span class="brand-symbol">♡</span> VELVET <i>HEARTS</i></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="navigation" id="navigation">
+    <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#soundtrack">Soundtrack</a><a href="#letter">A secret</a>
+    <button class="theme-button" id="themeToggle" aria-label="Toggle colour theme">☼</button>
+  </nav>
+</header>
+
+<main>
+
+
+<section class="anime-corner" id="anime-corner" aria-label="Cinematic anime corner">
+
+
+
+
+  <div class="anime-heart-layer" id="anime-heart-layer"
+       aria-hidden="true"></div>
+
+  <div class="anime-scene-content">
+    <p class="anime-eyebrow">A LITTLE WORLD OF OUR OWN</p>
+
+    <h2 class="anime-title">Stay for the <em>feeling.</em></h2>
+
+    <p class="anime-caption" id="anime-caption">A little love, a little magic, and a moment to remember.</p>
+
+
+
+    <div class="anime-controls">
+
+
+      <button class="anime-control" type="button"
+              id="anime-heart">Send a little heart ♡</button>
+    </div>
+
+    <p class="anime-status" id="anime-status" role="status" aria-live="polite">
+      A quiet scene, just for you.
+    </p>
+  </div>
+
+  <div class="anime-signature">VELVET HEARTS · A MOMENT JUST FOR YOU</div>
+</section>
+
+
+
+<section id="secret-letter-2" aria-labelledby="sl-heading">
+  <div class="sl-inner">
+
+
+
+<p class="sl-eyebrow">04 / A LITTLE SECRET</p>
+    <h2 class="sl-heading" id="sl-heading">
+      Something just for <em>you.</em>
+    </h2>
+    <p class="sl-subtitle">
+      Not every message needs to be loud.
+      Some are meant to be opened quietly.
+    </p>
+
+    <div class="sl-envelope-area">
+      <div class="sl-orbit" aria-hidden="true"></div>
+      <button class="sl-envelope" id="sl-open" type="button"
+              aria-label="Open your secret letter"
+              aria-expanded="false" aria-controls="sl-letter">
+        <span class="sl-flap" aria-hidden="true"></span>
+        <span class="sl-seal" aria-hidden="true">♡</span>
+        <span class="sl-envelope-label">Open when ready</span>
+      </button>
+    </div>
+
+    <p class="sl-hint" id="sl-hint" aria-live="polite">
+      A little surprise is waiting inside.
+    </p>
+
+    <article class="sl-letter" id="sl-letter" aria-hidden="true">
+      <p class="sl-letter-top">A note from the heart</p>
+      <h3>For the moments you need a little warmth</h3>
+      <div class="sl-message" id="sl-message">Some people make ordinary moments feel extraordinary.
+
+I hope you always find reasons to smile, people who listen when you speak, and kindness that finds you when you need it most.
+
+You deserve affection that feels genuine, laughter that comes easily, and memories that make you smile long after the moment has passed.
+
+And whenever life feels a little too loud, may you find a quiet place where your heart can rest.
+
+Until the next beautiful moment, take care of that lovely heart of yours.</div>
+      <p class="sl-signature">With a little love ♡</p>
+    </article>
+
+    <div class="sl-actions">
+      <button class="sl-button sl-button-primary" id="sl-replay" type="button" hidden>
+        ↻ Read it again
+      </button>
+      <button class="sl-button" id="sl-copy" type="button">
+        Copy this message ♡
+      </button>
+    </div>
+
+    <p class="sl-bottom-note">MADE WITH CARE · VELVET HEARTS</p>
+  </div>
+</section>
+
+
+<section class="countdown section-shell section-space">
+  <div class="countdown-panel reveal"><p class="eyebrow">05 / SOMETHING TO LOOK FORWARD TO</p><h2>Every special moment<br>starts with <em>a little waiting.</em></h2><label for="specialDate">Choose your special date</label><input class="date-input" id="specialDate" type="datetime-local"><div class="countdown-grid"><div><strong id="days">—</strong><span>DAYS</span></div><div><strong id="hours">—</strong><span>HOURS</span></div><div><strong id="minutes">—</strong><span>MINUTES</span></div><div><strong id="seconds">—</strong><span>SECONDS</span></div></div><p id="countdownMessage" aria-live="polite">Choose a date to start your countdown.</p></div>
+</section>
+
+<section class="stars-section section-space">
+  <div class="section-shell stars-panel reveal"><p class="eyebrow">06 / WRITTEN IN THE STARS</p><h2>Pick a star.<br><em>Find a little thought.</em></h2><p>Every star has something small to say.</p>
+    <div class="star-field" id="starField" aria-label="Choose a star">
+      <button aria-label="Star one">✦</button><button aria-label="Star two">✧</button><button aria-label="Star three">·</button><button aria-label="Star four">✦</button><button aria-label="Star five">✧</button><button aria-label="Star six">✦</button><button aria-label="Star seven">·</button><button aria-label="Star eight">✧</button><button aria-label="Star nine">✦</button><button aria-label="Star ten">✧</button><button aria-label="Star eleven">·</button><button aria-label="Star twelve">✦</button><button aria-label="Star thirteen">✧</button><button aria-label="Star fourteen">✦</button><button aria-label="Star fifteen">✧</button>
+    </div><p class="star-message" id="starMessage" aria-live="polite">The universe has a little surprise for you.</p>
+  </div>
+</section>
+
+<section class="finale section-shell section-space" id="finale">
+  <div class="finale-card reveal"><span class="finale-heart">♡</span><p class="eyebrow">THE FINAL CHAPTER</p><h2>One last question,<br><em>just for you.</em></h2><p class="finale-copy">Before you leave this little world, there's one thing I want to ask.</p>
+    <form id="nameForm"><label for="visitorName">What should I call you?</label><div class="name-row"><input id="visitorName" name="visitorName" maxlength="40" placeholder="Your name..." autocomplete="given-name" required><button class="button button-gold" type="submit">Continue ↗</button></div></form>
+    <div class="question-area" id="questionArea" hidden><p class="eyebrow">A QUESTION JUST FOR YOU</p><h3 id="personalTitle">Alright, darling...</h3><p>Will you be my girlfriend?</p><div class="answer-buttons"><button class="button button-gold" id="yesButton">Yes, of course ♡</button><button class="button button-outline" id="noButton">Not so fast...</button></div></div>
+    <div class="result-area" id="resultArea" hidden><span class="result-icon">💌</span><h3 id="resultTitle">Got you!</h3><p id="resultMessage"></p><p class="small-note">This is a playful interactive surprise, not a real relationship commitment.</p><button class="button button-gold" id="replayButton">Experience it again ↻</button></div>
+    <p class="form-notice" id="formNotice" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="closing section-shell"><span class="closing-symbol">♡</span><p>Some moments are small.<br>Some feelings are hard to explain.</p><h2>Keep the beautiful ones.</h2><button class="button button-outline" id="shareButton">Share this little world ↗</button></section>
+<section id="memory-world" aria-labelledby="mw-title">
+  <div class="mw-heading">
+    <p class="mw-eyebrow">01 / THE MEMORY ROOM</p>
+    <h2 class="mw-title" id="mw-title">Little moments.<br><em>Forever ours.</em></h2>
+    <p class="mw-intro">
+      Keep the moments you never want to forget. Add a picture,
+      give it a name, and let it live here.
+    </p>
+  </div>
+
+  <div class="mw-grid">
+    <article class="mw-card" data-memory="1">
+      <div class="mw-art">
+        <div class="mw-placeholder"><span>♡</span><small>Your first special moment</small></div>
+      </div>
+      <div class="mw-card-content">
+        <input class="mw-caption" aria-label="Memory 1 caption" maxlength="100" placeholder="Give this memory a name">
+        <input class="mw-date" aria-label="Memory 1 date" type="date">
+        <div class="mw-actions">
+          <button class="mw-add" type="button">＋ Add photo</button>
+          <button class="mw-remove" type="button">Clear</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="mw-card" data-memory="2">
+      <div class="mw-art">
+        <div class="mw-placeholder"><span>✧</span><small>A day worth keeping</small></div>
+      </div>
+      <div class="mw-card-content">
+        <input class="mw-caption" aria-label="Memory 2 caption" maxlength="100" placeholder="Give this memory a name">
+        <input class="mw-date" aria-label="Memory 2 date" type="date">
+        <div class="mw-actions">
+          <button class="mw-add" type="button">＋ Add photo</button>
+          <button class="mw-remove" type="button">Clear</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="mw-card" data-memory="3">
+      <div class="mw-art">
+        <div class="mw-placeholder"><span>☾</span><small>A beautiful little detail</small></div>
+      </div>
+      <div class="mw-card-content">
+        <input class="mw-caption" aria-label="Memory 3 caption" maxlength="100" placeholder="Give this memory a name">
+        <input class="mw-date" aria-label="Memory 3 date" type="date">
+        <div class="mw-actions">
+          <button class="mw-add" type="button">＋ Add photo</button>
+          <button class="mw-remove" type="button">Clear</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="mw-card" data-memory="4">
+      <div class="mw-art">
+        <div class="mw-placeholder"><span>♡</span><small>A moment to remember</small></div>
+      </div>
+      <div class="mw-card-content">
+        <input class="mw-caption" aria-label="Memory 4 caption" maxlength="100" placeholder="Give this memory a name">
+        <input class="mw-date" aria-label="Memory 4 date" type="date">
+        <div class="mw-actions">
+          <button class="mw-add" type="button">＋ Add photo</button>
+          <button class="mw-remove" type="button">Clear</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <p class="mw-status" role="status" aria-live="polite"></p>
+  <p class="mw-note">
+    Your memories are saved in this browser on this device.
+    They are not uploaded or shared automatically.
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer"><a class="brand" href="#home">VELVET <i>HEARTS</i> ♡</a><p>A LITTLE MYSTERY, MADE WITH FEELING.</p><span>© <span id="year"></span> VELVET HEARTS</span></footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo preview"><button class="lightbox-close" id="closeLightbox" aria-label="Close photo">×</button><img id="lightboxImage" alt=""><p id="lightboxCaption"></p></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/motion.js" defer></script>
+
+  <script src="js/anime-corner.js" defer></script>
+  <script src="js/velvet-effects.js" defer></script>
+  <script src="js/velvet-mobile.js" defer></script>
+
+<footer id="festus-credit">
+  Made with love by <span>Festus.R</span> ♡
+</footer>
+
+  <script src="js/memory-world.js" defer></script>
+  <script src="js/velvet-pwa.js" defer></script>
+
+<script src="js/secret-letter-2.js" defer></script>
+<script src="js/3d-opening.js"></script><script src="js/visitor-personalization.js" defer></script>
+
+
+
+
+  <script src="js/enter-experience-fix.js?v=20261029fix" defer></script>
+  <script src="js/music-collapse.js?v=20261029fix" defer></script>
+<script src="js/visitor-response-email.js" defer></script>
+</body>
+</html>

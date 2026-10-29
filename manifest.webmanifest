@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Velvet Hearts — A Little World of Our Own",
+  "short_name": "Velvet Hearts",
+  "description": "A cinematic little world of memories, love notes, and beautiful moments.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#190a17",
+  "theme_color": "#2b1027",
+  "categories": ["lifestyle", "entertainment"],
+  "icons": [
+    {
+      "src": "images/velvet-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

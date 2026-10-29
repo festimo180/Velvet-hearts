@@ -1,0 +1,10 @@
+Backups/
+*_backup*.html
+*_before_*.html
+index_before*.html
+home_before*.html
+intro_before*.html
+index_motion_backup*.html
+index_music_backup*.html
+connect_opening.py
+install_song.sh
