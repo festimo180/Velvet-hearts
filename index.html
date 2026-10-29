@@ -1,52 +1,224 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#180510">
-<title>Velvet Hearts — Opening</title>
-<link rel="stylesheet" href="css/3d-opening.css">
+<meta name="theme-color" content="#10070c">
+<title>Velvet Hearts — An Experience Made of Love</title>
+<meta name="description" content="Step into Velvet Hearts: a cinematic romantic experience filled with music, memories, and a little mystery.">
+<meta property="og:title" content="Velvet Hearts — An Experience Made of Love">
+<meta property="og:description" content="A cinematic romantic experience, made to be felt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{--night:#10070c;--wine:#260b1a;--wine2:#54162f;--rose:#f3a6c0;--pink:#ffdae5;--gold:#e8c58c;--cream:#fff5f0;--muted:#d7bbc7;--line:#f3c8d82d}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#180510}
-#vh-3d-opening{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;display:grid;place-items:center}
-.vh3d-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vh3d-glow{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,0,12,.85),rgba(20,0,12,.12) 70%)}
-.vh3d-copy{position:relative;z-index:2;text-align:center;padding:24px;width:100%;color:white}
-.vh3d-copy h1{font-size:clamp(2.8rem,12vw,5.5rem);margin:16px 0;color:#ffe1ec;text-shadow:0 0 25px #ff438b}
-.vh3d-eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:12px}
-.vh3d-subtitle{margin:0 auto 28px;max-width:340px}
-.vh3d-enter,.vh3d-exit{position:relative;z-index:3;border:1px solid #f5b6cc;border-radius:40px;padding:14px 24px;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block}
-.vh3d-enter{background:#a51f59;color:white}
-.vh3d-exit{position:absolute;top:20px;right:16px;background:#200c1bbd;color:white}
-.vh3d-hint{font-size:12px;margin-top:18px;color:#f4d9e4}
+html{scroll-behavior:smooth;background:var(--night);scroll-padding-top:80px}
+body{margin:0;background:var(--night);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 50% 0%,#64203c 0%,transparent 43%),radial-gradient(ellipse at 0% 70%,#29101f 0%,transparent 42%),linear-gradient(145deg,#10070c,#1b0b16 50%,#080509)}
+button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit}
+#petals,#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#petals{z-index:8}#stars{z-index:-1}
+.petal{position:absolute;top:-8vh;color:var(--rose);opacity:0;text-shadow:0 0 18px #f0a0b866;animation:fall linear forwards}
+@keyframes fall{0%{transform:translate3d(0,-5vh,0) rotate(0);opacity:0}12%{opacity:.7}88%{opacity:.45}100%{transform:translate3d(var(--drift),112vh,0) rotate(500deg);opacity:0}}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#ffe4bd;box-shadow:0 0 9px #ffe4bd;animation:twinkle var(--duration) ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.12;transform:scale(.6)}to{opacity:.9;transform:scale(1.6)}}
+.progress{position:fixed;z-index:40;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--rose),var(--gold))}
+.nav{position:fixed;z-index:30;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:17px clamp(18px,5vw,64px);background:linear-gradient(#10070ce8,transparent);backdrop-filter:blur(5px)}
+.brand{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.nav-right{display:flex;align-items:center;gap:18px}.nav-link{font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:#e9cbd7}
+.music-toggle{border:1px solid #e8c58c66;border-radius:999px;padding:10px 14px;color:var(--gold);background:#ffffff08;font-size:10px;letter-spacing:1px}
+.scene{position:relative;min-height:100svh;display:grid;place-items:center;padding:110px 22px 80px;isolation:isolate}
+.hero{min-height:112svh;text-align:center;overflow:hidden}
+.hero-glow{position:absolute;width:min(80vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#bd427544,transparent 67%);filter:blur(10px);animation:glow 8s ease-in-out infinite alternate;z-index:-1}
+@keyframes glow{from{transform:scale(.82) translateY(20px)}to{transform:scale(1.12) translateY(-24px)}}
+.orbit{position:absolute;width:min(84vw,610px);aspect-ratio:1;border:1px solid #f0a0b82e;border-radius:50%;animation:orbit 32s linear infinite;z-index:-1}
+.orbit:before,.orbit:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 25px var(--gold)}
+.orbit:before{top:12%;left:22%}.orbit:after{bottom:12%;right:18%;width:6px;height:6px;background:var(--rose)}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.hero-content{max-width:760px}
+.kicker{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:0 0 23px}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
+.hero h1{font-size:clamp(64px,13vw,142px);line-height:.76;letter-spacing:-3px;margin:0}
+.hero h1 span{color:var(--gold);font-style:italic}
+.rose-emblem{font-size:clamp(76px,15vw,140px);line-height:1;filter:drop-shadow(0 0 32px #f078a077);animation:float 5s ease-in-out infinite;display:block;margin:24px 0 34px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg) scale(1)}50%{transform:translateY(-17px) rotate(5deg) scale(1.04)}}
+.hero-copy{max-width:480px;color:var(--muted);line-height:2;font-size:14px;margin:30px auto}
+.btn{border:1px solid var(--gold);border-radius:999px;padding:15px 25px;background:linear-gradient(135deg,#f6dfb6,#d7a96f);color:#251018;text-transform:uppercase;font-size:10px;font-weight:700;letter-spacing:1.5px;box-shadow:0 8px 36px #d9a76c2c;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 42px #d9a76c55}
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#d8b8c7;display:grid;gap:10px;justify-items:center}
+.scroll-cue i{display:block;width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 1.5s infinite}
+@keyframes cue{50%{transform:scaleY(.5);transform-origin:top}}
+.story{background:linear-gradient(180deg,transparent,#1709129c,transparent)}
+.story-inner{width:min(100%,1000px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,90px);align-items:center}
+.story-art{position:relative;min-height:430px;display:grid;place-items:center}
+.glass-orb{width:min(70vw,350px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#f6c8d7aa,#a72d5b44 36%,#210a17 70%);border:1px solid #f3c3d64d;box-shadow:inset -20px -25px 70px #09040999,0 0 100px #d8497a20;animation:float 6s ease-in-out infinite}
+.glass-orb span{font-size:clamp(90px,15vw,150px);filter:drop-shadow(0 0 24px #ffb0c877)}
+.ring{position:absolute;width:min(80vw,410px);aspect-ratio:1;border:1px solid #e8c58c4d;border-radius:50%;transform:rotateX(67deg) rotate(-18deg);animation:ring 12s linear infinite}
+@keyframes ring{to{transform:rotateX(67deg) rotate(342deg)}}
+.copy h2,.scene h2{font-size:clamp(48px,8vw,88px);line-height:.88;margin:0 0 22px}
+.copy h2 span,.scene h2 span{color:var(--gold);font-style:italic}
+.copy p,.body-copy{font-size:14px;line-height:2;color:var(--muted);max-width:480px}
+.eyebrow{color:var(--rose);font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.center{text-align:center}.center .body-copy{margin-left:auto;margin-right:auto}
+.panel{width:min(100%,660px);padding:clamp(27px,6vw,58px);border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#ffffff0e,#ffffff03);box-shadow:0 30px 100px #0007,inset 0 1px #ffffff12;backdrop-filter:blur(18px)}
+.panel.wide{width:min(100%,900px)}
+.split-panel{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.memory-card{border:1px solid #f0c5d32b;border-radius:22px;padding:25px;background:linear-gradient(145deg,#6b24402e,#ffffff03);min-height:220px;display:flex;flex-direction:column;justify-content:center}
+.memory-card .big{font-family:"Cormorant Garamond",serif;font-size:50px;color:var(--gold)}
+.quote{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(29px,5vw,45px);line-height:1.25;color:#ffe9f0}
+.music-section{background:radial-gradient(ellipse at 50% 50%,#44172a66,transparent 70%)}
+.music-frame{width:100%;height:380px;border:0;border-radius:18px;background:#130a10}
+.music-note{font-size:12px;line-height:1.8;color:#cdb1be}
+.music-link{display:inline-block;color:var(--gold);margin:7px 8px 0 0;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+.chapter-number{font-family:"Cormorant Garamond",serif;font-size:clamp(80px,15vw,150px);line-height:1;color:#f0a0b81b}
+.timeline{width:min(100%,760px);display:grid;gap:14px}
+.timeline-item{display:grid;grid-template-columns:65px 1fr;gap:20px;align-items:start;border-bottom:1px solid #f0c5d31b;padding:20px 0}
+.timeline-item:last-child{border-bottom:0}
+.timeline-item .num{font-family:"Cormorant Garamond",serif;font-size:36px;color:var(--gold)}
+.timeline-item h3{font-size:30px;margin:0 0 7px}.timeline-item p{font-size:13px;line-height:1.9;color:var(--muted);margin:0}
+.question{min-height:110svh;text-align:center;background:radial-gradient(ellipse at center,#43152b88,transparent 62%)}
+.field{width:100%;border:1px solid #f0c5d344;background:#ffffff08;color:white;border-radius:14px;padding:16px;margin:8px 0 16px;outline:none;text-align:center}
+.field:focus{border-color:var(--rose)}.field::placeholder{color:#c6a7b4}
+.answer-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.secondary{border:1px solid #f0c5d344;color:var(--cream);background:#ffffff08;border-radius:999px;padding:14px 25px}
+.message{color:var(--muted);line-height:1.9;font-size:14px}
+.notice{font-size:12px;line-height:1.6;color:#e7c9d5;margin-top:15px;min-height:20px}
+#questionArea[hidden],#formArea[hidden]{display:none}
+#result{display:none}#result.visible{display:block;animation:reveal .8s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(28px) scale(.97);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+.reveal-heart{font-size:64px;animation:heartbeat 1.7s infinite;display:block;margin:18px}
+@keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.09)}24%{transform:scale(1)}36%{transform:scale(1.05)}}
+[data-reveal]{opacity:0;transform:translateY(38px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].shown{opacity:1;transform:none}
+.footer{padding:38px 20px 50px;text-align:center;color:#a98b99;font-size:10px;letter-spacing:2px;line-height:2}
+@media(max-width:700px){.story-inner{grid-template-columns:1fr;gap:0}.story-art{min-height:290px;order:2}.story-copy{order:1}.scene{padding-left:18px;padding-right:18px}.hero{min-height:105svh}.nav{padding:14px 16px}.nav-link{display:none}.brand{letter-spacing:2px}.panel{border-radius:24px}.split-panel{grid-template-columns:1fr}.music-frame{height:330px}.timeline-item{grid-template-columns:45px 1fr;gap:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style>
-  <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-<section id="vh-3d-opening" aria-label="Velvet Hearts opening">
-<video class="vh3d-video" autoplay muted loop playsinline>
-<source src="videos/anime-opening.mp4" type="video/mp4">
-</video>
-<div class="vh3d-glow"></div>
-<a class="vh3d-exit" href="home.html">Skip intro</a>
-<div class="vh3d-copy">
-<div class="vh3d-eyebrow">A little world made of love</div>
-<h1>Velvet Hearts</h1>
-<div class="vh3d-subtitle">Some stories are better when you step inside.</div>
-<div style="max-width:340px;margin:0 auto 20px">
-<label for="vh-visitor-name" style="display:block;margin-bottom:9px;color:#ffe1ec">First, what should I call you?</label>
-<input id="vh-visitor-name" type="text" maxlength="40" autocomplete="given-name" placeholder="Enter your name" style="width:100%;padding:14px;border-radius:25px;border:1px solid #f5b6cc;background:#240b1b;color:white;font-size:16px;text-align:center">
-<p id="vh-name-error" role="alert" style="display:none;color:#ffd0df;font-size:13px">Please enter your name first.</p>
-</div>
-<button class="vh3d-enter" id="vh-start" type="button" style="font-family:inherit">Enter Velvet Hearts ♡</button>
-<div class="vh3d-hint">Your story begins here.</div>
-</div>
+<div class="progress" id="progress"></div><div id="stars" aria-hidden="true"></div><div id="petals" aria-hidden="true"></div>
+<nav class="nav">
+  <div class="brand">♥ Velvet Hearts</div>
+  <div class="nav-right"><a class="nav-link" href="#chapters">The story</a><a class="nav-link" href="#soundtrack">Soundtrack</a><button class="music-toggle" id="musicJump">♫ MUSIC</button></div>
+</nav>
+
+<section class="scene hero" id="top">
+  <div class="hero-glow"></div><div class="orbit"></div>
+  <div data-reveal class="hero-content">
+    <p class="kicker">A cinematic experience in romance</p>
+    <span class="rose-emblem" aria-hidden="true">🌹</span>
+    <h1>Some things<br>feel like <span>magic.</span></h1>
+    <p class="hero-copy">A little mystery. A little music. A story that takes its time. Welcome to a world made of velvet nights, rose-coloured memories, and a question waiting at the end.</p>
+    <button class="btn" id="beginBtn">Step inside ↓</button>
+  </div>
+  <div class="scroll-cue">Let the story unfold<i></i></div>
 </section>
 
-<script src="js/music-optin.js" defer></script>
-<script src="js/velvet-upgrade.js" defer></script>
-<script src="js/visitor-response-email.js" defer></script>
-  <script src="js/intro-video-sync.js" defer></script>
+<section class="scene story" id="chapters">
+  <div class="story-inner">
+    <div class="story-art" data-reveal><div class="ring"></div><div class="glass-orb"><span>♡</span></div></div>
+    <div class="copy story-copy" data-reveal><p class="kicker">Chapter 01 · The feeling</p><h2>Not every<br>moment needs<br><span>an explanation.</span></h2><p>Some moments are meant to be experienced slowly. The kind that make you smile at your screen, wonder what comes next, and forget to check the time.</p><p>So put your feet up, turn the volume up when you're ready, and let Velvet Hearts take you somewhere a little softer.</p><button class="btn" data-scroll="#memory">Continue the story →</button></div>
+  </div>
+</section>
+
+<section class="scene" id="memory">
+  <div class="panel wide" data-reveal>
+    <div class="split-panel">
+      <div><p class="kicker">Chapter 02 · Little things</p><h2>It's the little<br><span>things.</span></h2><p class="body-copy">A message at the right time. A song that suddenly means something. A laugh you replay in your head. The smallest things can turn an ordinary day into a memory you keep.</p></div>
+      <div class="memory-card"><div class="big">01 / ∞</div><p class="quote">“The best stories don't rush the good part.”</p><p class="music-note">Take your time here. There's no timer, no hurry, just the next chapter whenever you're ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="scene center">
+  <div data-reveal>
+    <p class="kicker">A pause in the story</p>
+    <p class="quote">Maybe romance isn't always grand gestures.<br>Maybe it's the way a moment makes you <em>feel.</em></p>
+    <p class="body-copy">And sometimes, a good soundtrack does half the talking.</p>
+    <button class="btn" data-scroll="#soundtrack">Find the soundtrack ♫</button>
+  </div>
+</section>
+
+<section class="scene music-section" id="soundtrack">
+  <div class="panel wide" data-reveal>
+    <p class="kicker">Chapter 03 · Press play</p>
+    <h2>Set the mood.<br><span>Let it play.</span></h2>
+    <p class="body-copy">A little Naija love soundtrack for the atmosphere — familiar Afrobeats, soft feelings, and late-night vibes. Tap play inside the player below; your browser won't start copyrighted music automatically without your permission.</p>
+    <iframe class="music-frame" title="Romantic Afrobeats playlist" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" src="https://open.spotify.com/embed/playlist/5Rl1xntA0cSeNZJ5w29zb6?utm_source=generator&theme=0"></iframe>
+    <p class="music-note">If the embedded playlist doesn't load on your phone, open a song from these search links in YouTube or your music app:</p>
+    <div>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Rema+Calm+Down+official">Rema — Calm Down</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=CKay+Love+Nwantiti+official">CKay — Love Nwantiti</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Wizkid+Essence+Tems+official">Wizkid ft. Tems — Essence</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Tems+Me+and+U+official">Tems — Me & U</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Omah+Lay+Soso+official">Omah Lay — Soso</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Fireboy+DML+Peru+official">Fireboy DML — Peru</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Ayra+Starr+Last+Heartbreak+Song">Ayra Starr — Last Heartbreak Song</a>
+      <a class="music-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Joeboy+Baby+official">Joeboy — Baby</a>
+    </div>
+    <p class="music-note">Music is streamed by the music provider, not stored in this website. Song availability and playback may depend on the service, region, and account.</p>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="timeline" data-reveal>
+    <p class="kicker">Chapter 04 · A few truths</p>
+    <h2>Before the<br><span>big question.</span></h2>
+    <div class="timeline-item"><div class="num">01</div><div><h3>Be yourself.</h3><p>You don't need a perfect answer or a perfect mood. Just show up as you are.</p></div></div>
+    <div class="timeline-item"><div class="num">02</div><div><h3>Expect the unexpected.</h3><p>This little experience was built to make you curious. The story has one more turn before the ending.</p></div></div>
+    <div class="timeline-item"><div class="num">03</div><div><h3>Keep smiling.</h3><p>Whatever happens, this is a playful little surprise. The point is to enjoy the moment.</p></div></div>
+    <button class="btn" data-scroll="#ask">I'm ready for the question →</button>
+  </div>
+</section>
+
+<section class="scene question" id="ask">
+  <div class="panel" data-reveal>
+    <div id="formArea">
+      <p class="kicker">Chapter 05 · Just between us</p><h2>Let's make this<br><span>personal.</span></h2>
+      <p class="message">What should we call you? Your name makes the final chapter feel like it was made just for you.</p>
+      <form id="nameForm"><input class="field" id="nameInput" name="visitorName" type="text" maxlength="40" placeholder="Your name..." autocomplete="given-name" required><button class="btn" type="submit">Continue with love →</button></form>
+      <p class="notice" id="formNotice" aria-live="polite"></p>
+    </div>
+    <div id="questionArea" hidden>
+      <p class="kicker">A question just for you</p><h2 id="personalTitle">Alright...</h2><span class="reveal-heart">💗</span><h2 style="font-size:clamp(32px,6vw,48px)">Will you be my girlfriend?</h2>
+      <p class="message">Take a breath, trust your instincts, and choose honestly. There's a little plot twist either way.</p>
+      <div class="answer-row"><button class="btn answer" data-answer="YES">YES ♥</button><button class="secondary answer" data-answer="NO">No, sorry</button></div>
+      <p class="notice" id="answerNotice" aria-live="polite"></p>
+    </div>
+    <div id="result" aria-live="polite"><p class="kicker">The final chapter · The plot twist</p><span class="reveal-heart">💌</span><h2>Got you,<br><span id="resultName">darling</span>!</h2><p class="message" id="resultMessage"></p><p class="message">No hard feelings — this was a playful prank, not a real relationship proposal. ❤️</p><button class="btn" id="restartBtn">Experience it again ↻</button></div>
+  </div>
+</section>
+
+<section class="scene center">
+  <div data-reveal><p class="kicker">The end... or the beginning?</p><span class="rose-emblem">🌹</span><p class="quote">Some moments are small.<br>Some memories stay.</p><p class="body-copy">Thank you for stepping into Velvet Hearts.</p><button class="btn" data-scroll="#top">Return to the beginning ↑</button></div>
+</section>
+
+<footer class="footer">MADE WITH DRAMA, MUSIC & A LITTLE MISCHIEF<br>♥ VELVET HEARTS · TAKE YOUR TIME</footer>
+
+<!-- Response collection stays in demo mode until your own endpoint is connected. -->
+<iframe name="responseFrame" id="responseFrame" title="response submission" hidden></iframe>
+<form id="responseForm" method="POST" target="responseFrame" hidden><input name="visitorName" id="responseVisitor"><input name="answer" id="responseAnswer"><input name="page" value="Velvet Hearts"></form>
+<script>
+const RESPONSE_ENDPOINT = ""; // Add your own deployed Google Apps Script URL here.
+const $=id=>document.getElementById(id);
+let visitorName="",chosenAnswer="";
+const formArea=$("formArea"),questionArea=$("questionArea"),result=$("result");
+function scrollToId(id){$(id).scrollIntoView({behavior:"smooth",block:"center"})}
+document.querySelectorAll("[data-scroll]").forEach(b=>b.addEventListener("click",()=>scrollToId(b.dataset.scroll.slice(1))));
+$("beginBtn").addEventListener("click",()=>scrollToId("chapters"));
+$("musicJump").addEventListener("click",()=>scrollToId("soundtrack"));
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("shown");revealObserver.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll("[data-reveal]").forEach(el=>revealObserver.observe(el));
+window.addEventListener("scroll",()=>{let max=document.documentElement.scrollHeight-innerHeight;$("progress").style.width=(max>0?scrollY/max*100:0)+"%"},{passive:true});
+function makePetal(){const p=document.createElement("span");p.className="petal";p.textContent=["✦","✧","♡","❀"][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+"%";p.style.fontSize=(12+Math.random()*18)+"px";p.style.setProperty("--drift",(Math.random()*180-90)+"px");p.style.animationDuration=(8+Math.random()*9)+"s";$("petals").appendChild(p);p.addEventListener("animationend",()=>p.remove())}
+for(let i=0;i<14;i++)setTimeout(makePetal,i*450);setInterval(makePetal,1100);
+for(let i=0;i<65;i++){const s=document.createElement("i");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";s.style.setProperty("--duration",(2+Math.random()*4)+"s");$("stars").appendChild(s)}
+$("nameForm").addEventListener("submit",e=>{e.preventDefault();visitorName=$("nameInput").value.trim().slice(0,40);if(!visitorName){$("nameInput").focus();return}formArea.hidden=true;questionArea.hidden=false;$("personalTitle").textContent=`Alright, ${visitorName}...`;scrollToId("ask")});
+function sendResponse(name,answer){if(!RESPONSE_ENDPOINT){$("answerNotice").textContent="Demo mode: responses are not being sent yet. Connect the response endpoint before sharing the website.";return} $("responseVisitor").value=name;$("responseAnswer").value=answer;$("responseForm").action=RESPONSE_ENDPOINT;$("responseForm").submit();$("answerNotice").textContent="Thank you — your response has been submitted."}
+document.querySelectorAll(".answer").forEach(btn=>btn.addEventListener("click",()=>{chosenAnswer=btn.dataset.answer;sendResponse(visitorName,chosenAnswer);$("resultName").textContent=visitorName;$("resultMessage").textContent=chosenAnswer==="YES"?`Awww, ${visitorName}, you actually said YES! You didn't start planning the wedding already, did you? Plot twist: IT WAS A PRANK! 😂`:`Oh, ${visitorName}, you said NO! Either way, here's the confession: IT WAS A PRANK! You've survived Velvet Hearts. 😂`;questionArea.hidden=true;result.classList.add("visible");result.style.display="block";for(let i=0;i<24;i++)setTimeout(makePetal,i*100)}));
+$("restartBtn").addEventListener("click",()=>{visitorName="";chosenAnswer="";$("nameInput").value="";result.classList.remove("visible");result.style.display="none";questionArea.hidden=true;formArea.hidden=false;$("formNotice").textContent="";$("answerNotice").textContent="";scrollToId("ask")});
+</script>
 </body>
 </html>
